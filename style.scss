@@ -1,0 +1,210 @@
+$sub-primary : #31E6FF;
+$primary : #FF008A;
+
+*{
+    box-sizing: border-box; //모든 박스 크기는 내가 정한 너비 안에 딱 맞게(border-box) 만들고
+    position: relative; //언제든 자유롭게 위치를 조절하거나 기준점이 될 수 있게(relative) 준비시켜라
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: $sub-primary;
+    font-family: 'Noto Sans KR', 'sans-serif';
+}
+
+a, a:link, a:visited{
+    color:inherit;
+    text-decoration: none;
+
+}
+html{
+    font-size: 25px;
+
+}
+
+h1,h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: $primary;
+    font-size: 2.8rem;
+    color: $primary;
+}
+
+.background{
+    display: flex; // [정렬] 내부의 span들을 가로로 나란히 배치합니다.
+    justify-content: space-between; // [간격] 첫 번째와 마지막 span은 끝에 붙이고, 나머지는 일정한 간격으로 띄웁니다.
+    width: 100%; // [너비] 화면 전체 가로 폭을 다 씁니다.
+    height: 100vh; // [높이] 뷰포트(V) 높이(H)의 100%, 즉 화면 꽉 차게 설정합니다.
+    position: absolute; // [배치] 이 배경을 공중에 띄웁니다.그래야 다른 글자(main 섹션)들이 이 배경 위로 겹쳐서 올라올 수 있습니다.
+    padding: 0 1rem; // [여백] 양옆에 16px만큼의 여유를 둬서 막대기들이 화면 끝에 너무 딱 붙지 않게 합니다.
+
+    span{
+        display: block; 
+        height: 100%;
+        background : linear-gradient(180deg, #17FF2F 0%, rgba(217,217,217,0) 100%, rgba(217,217,217,0) 100%);
+        width: calc(100% / 9 - 2.7vw);   //전체 화면(100%)을 9등분( / 9)한 뒤, 막대기 사이의 간격(2.7vw)만큼을 뺍니다.
+        margin-right : 2.7vw;
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    // 상하는 0px, 좌우는 16px
+}
+
+.main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1{
+        bottom: 1.5rem;
+        margin: 0;
+        
+    }
+}
+
+.logo-holder{
+    display: flex;
+    justify-content: center;
+
+    img{
+        width: calc((100vw - 2rem) / 12 * 7);
+    }
+}
+
+.heart-holder {
+    display: block; // 확실히 영역을 차지하게 함
+    margin: 3.25rem 0; 
+}
+
+.contents{
+    width: 100%;
+    max-width: 980px;
+    margin : 10vh auto;
+    padding: 0 1rem;
+    text-align: center;
+    
+    p{
+        font-size: 1.7rem;
+        line-height: 1.7rem;
+        padding-bottom: 0;
+    }
+    span{
+        font-family: 'Bebas Neue', cursive;
+    }
+}
+
+.door-line{
+    height: 100vw;
+    width: 20px;
+    position: fixed;
+    z-index: 100;
+
+    margin-left : auto;
+    margin-right: auto;
+    background-color: $sub-primary;
+    mix-blend-mode: difference;
+    
+    animation-name: rotate;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+table{
+    background-color: #fff;
+    border-top: 2px solid $primary;
+    border-bottom: 2px solid $primary;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr, td, th{
+    border: 1px solid #E2E2E2;
+}
+
+td, th{
+    padding: 0.2em 0
+}
+
+td:nth-child(2){
+    font-weight: 700;
+    border-left: none;
+    border-right: none;
+}
+
+.anchor-holder{
+    a{
+        display: block;
+        text-align: center;
+        font-size: 1.7rem;
+    }
+}
+
+.static-door-line{ 
+    width: calc( 100vw - 1.875rem * 2 );
+    height: 4px;
+    background: #000;
+    margin: 30vh auto;
+    transform: rotate(30deg);
+    display: none;
+}
+
+@keyframes rotate{
+    from{
+        transform : rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 1024px)
+{
+    .contents p{
+        font-size: 1.4rem;
+    }
+}
+@media screen and (max-width: 768px){
+
+    .door-line{
+        display: none;
+    }
+
+    .static-door-line{
+        display: block;
+    }
+    .logo-holder{
+        width:100%;
+        padding: 1rem;
+        img{
+            width:100%;
+        }
+    }
+    .background{
+        padding: 0;
+        span{
+            margin: 0;
+            width: 25%;
+            &:nth-child(n+4){
+            display: none;
+        }
+    };
+    }
+}
+@media screen and (max-width: 450px){
+    .contents p{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 350px){
+    .contents p{
+        font-size: 1.1rem;
+    }
+}
