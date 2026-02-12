@@ -163,6 +163,12 @@ td:nth-child(2) {
   }
   .static-door-line {
     display: block;
+    width: calc(100vw - 3.75rem);
+    height: 4px;
+    background: #000;
+    margin: 30vh auto;
+    transform: rotate(30deg);
+    transform-origin: center;
   }
   .logo-holder {
     width: 100%;
