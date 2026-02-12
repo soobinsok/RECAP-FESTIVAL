@@ -181,11 +181,11 @@ td:nth-child(2) {
 }
 @media screen and (max-width: 450px) {
   .contents p {
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
   }
 }
 @media screen and (max-width: 350px) {
   .contents p {
-    font-size: 1.1rem;
+    font-size: 1.1rem !important;
   }
 }/*# sourceMappingURL=style.css.map */
