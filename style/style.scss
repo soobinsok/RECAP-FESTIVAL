@@ -19,7 +19,7 @@ a, a:link, a:visited{
 
 }
 html{
-    font-size: 25px;
+    font-size: 0.8rem;
 
 }
 
@@ -91,7 +91,7 @@ h1,h2 {
     
     p{
         font-size: 1.7rem;
-        line-height: 1.7rem;
+        line-height: 1.6;
         padding-bottom: 0;
     }
     span{
@@ -172,6 +172,12 @@ td:nth-child(2){
     }
 }
 @media screen and (max-width: 768px){
+
+    .contents{
+        p{
+            font-size: 1.4rem;
+        }
+    }
 
     .door-line{
         display: none;
