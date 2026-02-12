@@ -217,9 +217,20 @@ td:nth-child(2){
     .contents p{
         font-size: 1.2rem !important; 
     }
+
+    .static-door-line {
+        display: block; // 여기서 나타나게 함
+        transform: rotate(30deg); // 여기서 돌림
+        width: calc(100vw - 1.875rem * 2);
+        height: 4px;
+        background: #000;
+        margin: 30vh auto;
+    }
 }
 @media screen and (max-width: 350px){
     .contents p{
         font-size: 1.1rem !important;
     }
+
+    
 }
